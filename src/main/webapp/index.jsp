@@ -5,8 +5,11 @@
     <title>Home page</title>
 </head>
 <body>
-<p>
-    This is home page. Call <a href="${pageContext.request.contextPath}/hello">QuickServlet</a>
-</p>
+<nav>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/hello">QuickServlet</a></li>
+        <li><a href="${pageContext.request.contextPath}/jsp">JspServlet</a></li>
+    </ul>
+</nav>
 </body>
 </html>
