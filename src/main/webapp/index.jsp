@@ -1,5 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
 <body>
-<h2>Hello World!</h2>
+<p>
+    This is home page. Call <a href="${pageContext.request.contextPath}/hello">QuickServlet</a>
+</p>
 </body>
 </html>
