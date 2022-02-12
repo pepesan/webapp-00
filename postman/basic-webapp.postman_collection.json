@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "7a604eab-828a-4412-9aaa-eb4d1478c875",
+		"name": "basic-webapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/webapp/params?myparam=value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/webapp/params?myparam=value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"webapp",
+						"params"
+					],
+					"query": [
+						{
+							"key": "myparam",
+							"value": "value"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/webapp/params?myparam=value",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/webapp/params?myparam=value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"webapp",
+						"params"
+					],
+					"query": [
+						{
+							"key": "myparam",
+							"value": "value"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
