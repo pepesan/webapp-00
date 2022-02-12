@@ -12,5 +12,6 @@
         <li><a href="${pageContext.request.contextPath}/jsp">JspServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jdbc">JdbcServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/params?myparam=value">ParamsServlet</a></li>
+        <li><a href="${pageContext.request.contextPath}/jstl">Ejemplo JSTL</a></li>
     </ul>
 </nav>
