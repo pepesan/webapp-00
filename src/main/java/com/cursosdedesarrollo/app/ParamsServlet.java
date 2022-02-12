@@ -1,12 +1,12 @@
 package com.cursosdedesarrollo.app;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 @WebServlet(
         name = "ParamsServlet",
@@ -28,7 +28,14 @@ public class ParamsServlet extends HttpServlet {
 
         PrintWriter out = res.getWriter();
         res.setContentType("text/plain;charset=UTF-8");
-
+        String contextPath = req.getContextPath();
+        out.write("ContextPath= "+contextPath + "\n");
+        String servletPath = req.getServletPath();
+        out.write("ServletPath= "+servletPath + "\n");
+        String method = req.getMethod();
+        out.write("method= "+method + "\n");
+        String queryString = req.getQueryString();
+        out.write("QueryString= "+queryString + "\n");
         String paramName = "myparam";
         String paramValue = req.getParameter(paramName);
         if(paramValue==null){
@@ -43,8 +50,19 @@ public class ParamsServlet extends HttpServlet {
         paramValue = req.getParameter(paramName);
 
         if (paramValue==null) {
-            out.write("Parameter " + paramName + " not found");
+            out.write("Parameter " + paramName + " not found \n");
         }
+
+        Map<String,String[]> parameterMap = req.getParameterMap();
+        out.write("Parameter List\n");
+
+        parameterMap.forEach((k,v) ->
+            {
+                System.out.println("Clave: " + k);
+                System.out.println("Valor: " + v[0]);
+                String s = k + "= " + v[0] + "\n";
+                out.write(s);
+            });
 
         out.close();
 
