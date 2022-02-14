@@ -2,7 +2,6 @@
 <%@ include file="/header.jsp" %>
 <%@ include file="/menu.jsp" %>
 <h2>Bienvenid@as al ejemplo de Java en JSP</h2>
-Random Generator - Java Code Geeks Snippets
 
 <%
    MyService myService = new MyService("Hola");
