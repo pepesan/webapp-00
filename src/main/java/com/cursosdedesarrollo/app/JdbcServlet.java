@@ -1,4 +1,7 @@
 package com.cursosdedesarrollo.app;
+
+import org.h2.jdbc.JdbcSQLSyntaxErrorException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +23,20 @@ public class JdbcServlet extends HttpServlet {
         Connection conn = null;
         Statement stmt = null;
         Registration registration = null;
+        String sql = null;
         try {
             // STEP 1: Register JDBC driver
-            Class.forName ("org.h2.Driver");
+            Class.forName("org.h2.Driver");
             //STEP 2: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection (
+            conn = DriverManager.getConnection(
                     "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
                     "sa",
                     "");
             //STEP 3: Execute a query
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
-            String sql =  "CREATE TABLE   REGISTRATION " +
+            sql = "CREATE TABLE   REGISTRATION " +
                     "(id INTEGER not NULL, " +
                     " first VARCHAR(255), " +
                     " last VARCHAR(255), " +
@@ -40,6 +44,15 @@ public class JdbcServlet extends HttpServlet {
                     " PRIMARY KEY ( id ))";
             stmt.executeUpdate(sql);
             System.out.println("Created table in given database...");
+        }catch (JdbcSQLSyntaxErrorException e){
+            e.printStackTrace();
+            System.out.println("Tabla creada previamente");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try{
             // STEP 4: Execute a query
             stmt = conn.createStatement();
             sql = "INSERT INTO Registration " + "VALUES (100, 'Zara', 'Ali', 18)";
@@ -128,8 +141,6 @@ public class JdbcServlet extends HttpServlet {
             // STEP 10: Clean-up environment
             stmt.close();
             conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }

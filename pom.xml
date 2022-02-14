@@ -52,6 +52,9 @@
       <version>1.1.2</version>
       <scope>runtime</scope>
     </dependency>
+
+
+
     <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
     <dependency>
       <groupId>com.h2database</groupId>
@@ -106,8 +109,8 @@
         <!-- Arranque con Tomcat 9 -->
         <plugin>
           <groupId>org.codehaus.cargo</groupId>
-          <artifactId>cargo-maven2-plugin</artifactId>
-          <version>1.7.6</version>
+          <artifactId>cargo-maven3-plugin</artifactId>
+          <version>1.9.0</version>
           <configuration>
             <container>
               <containerId>tomcat9x</containerId>
