@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.app.ejercicios;
+package com.cursosdedesarrollo.app;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
