@@ -56,11 +56,12 @@ public class ParamsServlet extends HttpServlet {
         Map<String,String[]> parameterMap = req.getParameterMap();
         out.write("Parameter List\n");
 
-        parameterMap.forEach((k,v) ->
+        parameterMap.forEach(
+                (k,v) ->
             {
                 System.out.println("Clave: " + k);
                 System.out.println("Valor: " + v[0]);
-                String s = k + "= " + v[0] + "\n";
+                String s = k + " = " + v[0] + "\n";
                 out.write(s);
             });
 
