@@ -118,8 +118,6 @@ public class JdbcServlet extends HttpServlet {
                 int age = rs.getInt("age");
                 String first = rs.getString("first");
                 String last = rs.getString("last");
-                registration = new Registration(id,age,first,last);
-
                 // Display values
                 System.out.print("ID: " + id);
                 System.out.print(", Age: " + age);
