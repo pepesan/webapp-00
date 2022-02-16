@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(
-        name = "JServstllet",
+        name = "JstlServlet",
         urlPatterns = {"/jstl"},
         loadOnStartup = 1
 //      , asyncSupported = false

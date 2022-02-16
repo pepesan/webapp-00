@@ -1,2 +1,8 @@
+# quitada carpeta de Intellij
 .idea
+# quitada carpeta de maven para los artefactos generados
 target
+# quitadas carpetas y ficheros de eclipse
+.classpath
+.project
+.settings

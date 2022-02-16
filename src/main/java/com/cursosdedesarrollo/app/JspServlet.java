@@ -20,7 +20,8 @@ public class JspServlet extends HttpServlet {
 
         Object datos = "Algunos datos";
         request.setAttribute("data", datos);
-        request.getRequestDispatcher("/WEB-INF/page.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/page.jsp")
+                .forward(request, response);
     }
 }
 
