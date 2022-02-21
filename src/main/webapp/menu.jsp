@@ -46,6 +46,7 @@
 
         <li><a href="${pageContext.request.contextPath}/jsp">JspServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jdbc">JdbcServlet</a></li>
+        <li><a href="${pageContext.request.contextPath}/mysql">JdbcMysqlServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/params?myparam=value">ParamsServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jstl">Ejemplo JSTL</a></li>
         <li><a href="${pageContext.request.contextPath}/javain.jsp">Ejemplo Java en JSP</a></li>

@@ -157,6 +157,7 @@ public class JdbcServlet extends HttpServlet {
             request.setAttribute("listado", listado);
             request.getRequestDispatcher("/WEB-INF/jdbc.jsp")
                     .forward(request, response);
+            response.setStatus(200);
         } catch (SQLException e) {
             e.printStackTrace();
         }
