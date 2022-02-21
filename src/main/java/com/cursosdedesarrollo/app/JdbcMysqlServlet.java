@@ -13,14 +13,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(
-        name = "JdbcServlet",
-        urlPatterns = {"/jdbc"},
+        name = "JdbcMysqlServlet",
+        urlPatterns = {"/mysql"},
         loadOnStartup = 1
 //      , asyncSupported = false
 )
-public class JdbcServlet extends HttpServlet {
-    Registration r;
-    List<Registration> listado;
+public class JdbcMysqlServlet extends HttpServlet {
+    private static final String DATABASE_NAME= "test";
+    private static final String DATABASE_HOST= "localhost";
+    private static final String DATABASE_PORT= "3306";
+    private static final String DATABASE_USER= "root";
+    private static final String DATABASE_PASS= "root";
+    private static final String TABLE_NAME= "REGISTRATION";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -28,19 +32,30 @@ public class JdbcServlet extends HttpServlet {
         Statement stmt = null;
         Registration registration = null;
         String sql = null;
+        Registration r = null;
+        List<Registration> listado;
         try {
             // STEP 1: Register JDBC driver
-            Class.forName("org.h2.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //STEP 2: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(
-                    "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
-                    "sa",
-                    "");
+                    "jdbc:mysql://"
+                            +DATABASE_HOST
+                            +":"
+                            +DATABASE_PORT
+                            +"/"
+                            +DATABASE_NAME,
+                    DATABASE_USER,
+                    DATABASE_PASS);
             //STEP 3: Execute a query
+            System.out.println("Deleting table in given database...");
+            sql = "DROP TABLE IF EXISTS "+TABLE_NAME;
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
-            sql = "CREATE TABLE   REGISTRATION " +
+            sql = "CREATE TABLE  "+ TABLE_NAME+ " " +
                     "(id INTEGER not NULL, " +
                     " first VARCHAR(255), " +
                     " last VARCHAR(255), " +
@@ -59,19 +74,19 @@ public class JdbcServlet extends HttpServlet {
         try{
             // STEP 4: Execute a query
             stmt = conn.createStatement();
-            sql = "INSERT INTO Registration "
+            sql = "INSERT INTO "+ TABLE_NAME+ " "
                     + "VALUES (100, 'Zara', 'Ali', 18)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
+            sql = "INSERT INTO "+ TABLE_NAME+ " "
                     + "VALUES (101, 'Mahnaz', 'Fatma', 25)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
+            sql = "INSERT INTO "+ TABLE_NAME+ " "
                     + "VALUES (102, 'Zaid', 'Khan', 30)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
+            sql = "INSERT INTO "+ TABLE_NAME+ " "
                     + "VALUES(103, 'Sumit', 'Mittal', 28)";
 
             stmt.executeUpdate(sql);
@@ -79,7 +94,7 @@ public class JdbcServlet extends HttpServlet {
             // STEP 5: Execute a query
             System.out.println("Connected database successfully...");
             stmt = conn.createStatement();
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM "+ TABLE_NAME+ " ";
             ResultSet rs = stmt.executeQuery(sql);
             listado = new LinkedList<>();
             // STEP 6: Extract data from result set
@@ -101,13 +116,13 @@ public class JdbcServlet extends HttpServlet {
             rs.close();
             // STEP 8: Execute a query
             stmt = conn.createStatement();
-            sql = "UPDATE Registration "
+            sql = "UPDATE "+ TABLE_NAME+ " "
                     + "SET age = 30 WHERE id in (100, 101)";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
             // to see the updated records
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM "+ TABLE_NAME+ " ";
             rs = stmt.executeQuery(sql);
             listado = new LinkedList<>();
             while(rs.next()){
@@ -128,13 +143,13 @@ public class JdbcServlet extends HttpServlet {
             // STEP 9: Execute a query
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
-            sql = "DELETE FROM Registration "
+            sql = "DELETE FROM "+ TABLE_NAME+ " "
                     + "WHERE id = 101";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
             // to see the remaining records
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM "+ TABLE_NAME+ " ";
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
@@ -160,5 +175,6 @@ public class JdbcServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 }
