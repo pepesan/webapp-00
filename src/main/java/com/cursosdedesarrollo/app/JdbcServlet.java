@@ -21,13 +21,13 @@ import java.util.List;
 public class JdbcServlet extends HttpServlet {
     Registration r;
     List<Registration> listado;
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-        Connection conn = null;
-        Statement stmt = null;
-        Registration registration = null;
-        String sql = null;
+
+    Connection conn = null;
+    Statement stmt = null;
+    Registration registration = null;
+    String sql = null;
+
+    public JdbcServlet(){
         try {
             // STEP 1: Register JDBC driver
             Class.forName("org.h2.Driver");
@@ -41,7 +41,7 @@ public class JdbcServlet extends HttpServlet {
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
             sql = "CREATE TABLE   REGISTRATION " +
-                    "(id INTEGER not NULL, " +
+                    "(id INTEGER not NULL AUTO_INCREMENT, " +
                     " first VARCHAR(255), " +
                     " last VARCHAR(255), " +
                     " age INTEGER, " +
@@ -56,23 +56,28 @@ public class JdbcServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+
         try{
             // STEP 4: Execute a query
             stmt = conn.createStatement();
-            sql = "INSERT INTO Registration "
-                    + "VALUES (100, 'Zara', 'Ali', 18)";
+            sql = "INSERT INTO Registration (first, last, age)"
+                    + "VALUES ('Zara', 'Ali', 18)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
-                    + "VALUES (101, 'Mahnaz', 'Fatma', 25)";
+            sql = "INSERT INTO Registration (first, last, age)"
+                    + "VALUES ('Mahnaz', 'Fatma', 25)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
-                    + "VALUES (102, 'Zaid', 'Khan', 30)";
+            sql = "INSERT INTO Registration (first, last, age)"
+                    + "VALUES ('Zaid', 'Khan', 30)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration "
-                    + "VALUES(103, 'Sumit', 'Mittal', 28)";
+            sql = "INSERT INTO Registration  (first, last, age)"
+                    + "VALUES('Sumit', 'Mittal', 28)";
 
             stmt.executeUpdate(sql);
             System.out.println("Inserted records into the table...");
@@ -102,7 +107,7 @@ public class JdbcServlet extends HttpServlet {
             // STEP 8: Execute a query
             stmt = conn.createStatement();
             sql = "UPDATE Registration "
-                    + "SET age = 30 WHERE id in (100, 101)";
+                    + "SET age = 30 WHERE id in (1, 300)";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
@@ -129,7 +134,7 @@ public class JdbcServlet extends HttpServlet {
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
             sql = "DELETE FROM Registration "
-                    + "WHERE id = 101";
+                    + "WHERE id = 1";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
@@ -152,7 +157,7 @@ public class JdbcServlet extends HttpServlet {
             rs.close();
             // STEP 10: Clean-up environment
             stmt.close();
-            conn.close();
+            // conn.close();
             request.setAttribute("data", r);
             request.setAttribute("listado", listado);
             request.getRequestDispatcher("/WEB-INF/jdbc.jsp")
