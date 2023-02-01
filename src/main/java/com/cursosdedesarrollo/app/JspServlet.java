@@ -19,7 +19,9 @@ public class JspServlet extends HttpServlet {
             throws IOException, ServletException {
 
         Object datos = "Algunos datos";
+        Integer numero = 12;
         request.setAttribute("data", datos);
+        request.setAttribute("numero", numero);
         request.getRequestDispatcher("/WEB-INF/page.jsp")
                 .forward(request, response);
     }

@@ -25,6 +25,12 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <!-- Dependencia del Api de los Servlets -->
     <dependency>
@@ -95,6 +101,19 @@
           <configuration>
             <port>8080</port>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok-maven-plugin</artifactId>
+          <version>1.18.20.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>delombok</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>

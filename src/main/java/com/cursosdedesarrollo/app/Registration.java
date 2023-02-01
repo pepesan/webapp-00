@@ -1,5 +1,11 @@
 package com.cursosdedesarrollo.app;
 
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class Registration {
     Integer id;
     Integer age;
@@ -10,38 +16,6 @@ public class Registration {
         this.id = id;
         this.age = age;
         this.first = first;
-        this.last = last;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getFirst() {
-        return first;
-    }
-
-    public void setFirst(String first) {
-        this.first = first;
-    }
-
-    public String getLast() {
-        return last;
-    }
-
-    public void setLast(String last) {
         this.last = last;
     }
 

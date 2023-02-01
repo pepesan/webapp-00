@@ -13,5 +13,6 @@
 <body>
 <p><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a> </p>
 <p>The data from servlet: ${data}</p>
+<p>Numero pasado a la vista: ${numero}</p>
 </body>
 </html>
