@@ -10,7 +10,7 @@
   <packaging>war</packaging>
 
   <name>webapp Maven Webapp</name>
-  <url>http://cursosdedesarrollo.com</url>
+  <url>https://cursosdedesarrollo.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,6 +26,7 @@
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <!-- Dependencia del Api de los Servlets -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -33,6 +34,7 @@
       <scope>provided</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+    <!-- Dependencia del Api de los JSP -->
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>javax.servlet.jsp-api</artifactId>
