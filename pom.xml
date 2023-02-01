@@ -25,20 +25,22 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
       <scope>provided</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+
+    <!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>javax.servlet.jsp-api</artifactId>
-      <version>2.3.3</version>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -120,7 +122,7 @@
           <version>1.9.0</version>
           <configuration>
             <container>
-              <containerId>tomcat9x</containerId>
+              <containerId>tomcat10x</containerId>
               <type>embedded</type>
             </container>
           </configuration>
