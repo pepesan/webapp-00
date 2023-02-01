@@ -43,7 +43,8 @@
 </nav>
 <nav>
     <ul>
-
+        <li><a href="${pageContext.request.contextPath}/hello">QuickServlet</a></li>
+        <li><a href="${pageContext.request.contextPath}/html">HtmlServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp">JspServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jdbc">JdbcServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/mysql">JdbcMysqlServlet</a></li>

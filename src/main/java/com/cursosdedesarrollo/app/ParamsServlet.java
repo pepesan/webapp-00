@@ -24,6 +24,14 @@ public class ParamsServlet extends HttpServlet {
         handleRequest(req, res);
     }
 
+    public void doPut(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        handleRequest(req, res);
+    }
+
+    public void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        handleRequest(req, res);
+    }
+
     public void handleRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
         PrintWriter out = res.getWriter();

@@ -18,10 +18,20 @@ public class QuickServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
+        // Objeto HttpServletRequest
+        System.out.println("Request URL: "+request.getRequestURL());
+        System.out.println("Request URI: "+request.getRequestURI());
+        System.out.println("Method : "+request.getMethod());
+        System.out.println("Method : "+request.getHeader("User-Agent"));
+
+        // Objeto HttpServletResponse
+        // Definir el tipo de salida
         response.setContentType("text/plain;charset=UTF-8");
-
+        // Definir el procesador de la salida
         ServletOutputStream out = response.getOutputStream();
-
-        out.print("Hello there from Servlet");
+        // Imprimir datos en la salida
+        out.print("Hola desde el Servlet QuickServlet");
+        // Cerrar la salida
+        out.close();
     }
 }
