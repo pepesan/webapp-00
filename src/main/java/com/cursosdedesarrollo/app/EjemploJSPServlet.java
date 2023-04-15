@@ -1,10 +1,12 @@
 package com.cursosdedesarrollo.app;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 @WebServlet(
@@ -14,7 +16,7 @@ import java.io.IOException;
 )
 public class EjemploJSPServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, ServletException {
         String cadena = "valor inicial";
         req.setAttribute("cadena", cadena);
         req.getRequestDispatcher("/WEB-INF/page2.jsp").forward(req,resp);
