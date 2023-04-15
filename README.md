@@ -4,7 +4,7 @@
 # Empaquetado
 <code>$ mvn clean compile package</code>
 # Despliegue en Tomcat 11 embebido
-mvn clean package org.codehaus.cargo:cargo-maven3-plugin:run
+<code>mvn clean package org.codehaus.cargo:cargo-maven3-plugin:run</code>
 ## referencia
 https://codehaus-cargo.github.io/cargo/Tomcat+11.x.html
 
