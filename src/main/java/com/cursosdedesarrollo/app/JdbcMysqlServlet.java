@@ -174,6 +174,13 @@ public class JdbcMysqlServlet extends HttpServlet {
                     .forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            // free resources
+            try {
+                if (stmt != null) stmt.close();
+            }catch (SQLException se2){
+                se2.printStackTrace();
+            }
         }
 
     }

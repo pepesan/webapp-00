@@ -51,5 +51,6 @@
         <li><a href="${pageContext.request.contextPath}/params?myparam=value">ParamsServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jstl">Ejemplo JSTL</a></li>
         <li><a href="${pageContext.request.contextPath}/javain.jsp">Ejemplo Java en JSP</a></li>
+        <li><a href="${pageContext.request.contextPath}/form">Ejemplo formulario</a></li>
     </ul>
 </nav>
