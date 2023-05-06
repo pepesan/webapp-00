@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Webapp-00</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Ejemplo de envío de datos JSON a un servlet</title>
+</head>
+<body>
+<h1>Ejemplo de envío de datos JSON a un servlet</h1>
+<form id="miFormulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre"><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad"><br>
+    <button type="button" onclick="enviarDatos()">Enviar datos</button>
+</form>
+
+<script>
+    function enviarDatos() {
+        // Obtener los valores de las propiedades
+        var nombre = document.getElementById("nombre").value;
+        var edad = document.getElementById("edad").value;
+
+        // Crear un objeto JavaScript que represente los datos
+        var datos = {
+            "nombre": nombre,
+            "edad": edad
+        };
+
+        // Convertir el objeto JavaScript en una cadena JSON
+        var datosJSON = JSON.stringify(datos);
+
+        // Crear una solicitud HTTP POST
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/tomcat10/json", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Enviar los datos JSON al servlet
+        xhr.send(datosJSON);
+    }
+</script>
+</body>
+</html>
