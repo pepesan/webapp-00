@@ -57,16 +57,12 @@ public class JdbcServlet extends HttpServlet {
             e.printStackTrace();
         }
         finally {
-            try {
-                if (stmt != null)
-                    conn.close();
-            } catch (SQLException se) {
+            if (stmt != null) {
+                //conn.close();
+                System.out.println(stmt.toString());
             }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
+            if (conn != null) {
+                //conn.close();
             }
         }
     }
@@ -77,19 +73,19 @@ public class JdbcServlet extends HttpServlet {
         try{
             // STEP 4: Execute a query
             stmt = conn.createStatement();
-            sql = "INSERT INTO Registration (first, last, age)"
+            sql = "INSERT INTO REGISTRATION (first, last, age)"
                     + "VALUES ('Zara', 'Ali', 18)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration (first, last, age)"
+            sql = "INSERT INTO REGISTRATION (first, last, age)"
                     + "VALUES ('Mahnaz', 'Fatma', 25)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration (first, last, age)"
+            sql = "INSERT INTO REGISTRATION (first, last, age)"
                     + "VALUES ('Zaid', 'Khan', 30)";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO Registration  (first, last, age)"
+            sql = "INSERT INTO REGISTRATION  (first, last, age)"
                     + "VALUES('Sumit', 'Mittal', 28)";
 
             stmt.executeUpdate(sql);
@@ -97,7 +93,7 @@ public class JdbcServlet extends HttpServlet {
             // STEP 5: Execute a query
             System.out.println("Connected database successfully...");
             stmt = conn.createStatement();
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM REGISTRATION";
             ResultSet rs = stmt.executeQuery(sql);
             listado = new LinkedList<>();
             // STEP 6: Extract data from result set
@@ -119,13 +115,13 @@ public class JdbcServlet extends HttpServlet {
             rs.close();
             // STEP 8: Execute a query
             stmt = conn.createStatement();
-            sql = "UPDATE Registration "
+            sql = "UPDATE REGISTRATION "
                     + "SET age = 30 WHERE id in (1, 300)";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
             // to see the updated records
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM REGISTRATION";
             rs = stmt.executeQuery(sql);
             listado = new LinkedList<>();
             while(rs.next()){
@@ -146,13 +142,13 @@ public class JdbcServlet extends HttpServlet {
             // STEP 9: Execute a query
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
-            sql = "DELETE FROM Registration "
+            sql = "DELETE FROM REGISTRATION "
                     + "WHERE id = 1";
             stmt.executeUpdate(sql);
 
             // Now you can extract all the records
             // to see the remaining records
-            sql = "SELECT id, first, last, age FROM Registration";
+            sql = "SELECT id, first, last, age FROM REGISTRATION";
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
