@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.cursosdedesarrollo</groupId>
-  <artifactId>tomcat10</artifactId>
+  <artifactId>tomcat11</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>tomcat10 Maven Webapp</name>
@@ -12,25 +12,25 @@
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
-      <version>6.0.0</version>
+      <version>6.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>jakarta.servlet.jsp</groupId>
       <artifactId>jakarta.servlet.jsp-api</artifactId>
-      <version>3.1.0</version>
+      <version>4.0.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>jakarta.el</groupId>
       <artifactId>jakarta.el-api</artifactId>
-      <version>5.0.0</version>
+      <version>6.0.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>jakarta.websocket</groupId>
       <artifactId>jakarta.websocket-api</artifactId>
-      <version>2.1.0</version>
+      <version>2.2.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -76,7 +76,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>tomcat10</finalName>
+    <finalName>tomcat11</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -91,7 +91,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.10.1</version>
+          <version>3.13.0</version>
           <configuration>
             <source>21</source>
             <target>21</target>
@@ -120,12 +120,17 @@
         <plugin>
           <groupId>org.codehaus.cargo</groupId>
           <artifactId>cargo-maven3-plugin</artifactId>
-          <version>1.10.6</version>
+          <version>1.10.15</version>
           <configuration>
             <container>
-              <containerId>tomcat10x</containerId>
+              <containerId>tomcat11x</containerId>
               <type>embedded</type>
             </container>
+            <configuration>
+              <properties>
+                <cargo.servlet.port>8080</cargo.servlet.port>
+              </properties>
+            </configuration>
           </configuration>
         </plugin>
       </plugins>

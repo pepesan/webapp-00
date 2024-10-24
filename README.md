@@ -3,7 +3,7 @@
 <code>$ mvn clean compile</code>
 # Empaquetado
 <code>$ mvn clean compile package</code>
-# Despliegue en Tomcat 10 embebido
+# Despliegue en Tomcat 11 embebido
 <code>mvn clean package org.codehaus.cargo:cargo-maven3-plugin:run</code>
 ## referencia
 https://codehaus-cargo.github.io/cargo/Tomcat+11.x.html
@@ -11,4 +11,4 @@ https://codehaus-cargo.github.io/cargo/Tomcat+11.x.html
 parámetro para cambiar el puerto:
 -Dcargo.servlet.port=9001
 # Acceso a la aplicación
-[URL a la aplicación](http://localhost:8080/tomcat10)
+[URL a la aplicación](http://localhost:8080/tomcat11)
