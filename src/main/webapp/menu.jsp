@@ -43,6 +43,7 @@
 </nav>
 <nav>
     <ul>
+        <!-- pageContext.request.contextPath == /tomcat11 -->
         <li><a href="${pageContext.request.contextPath}/hello">QuickServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/html">HtmlServlet</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp">JspServlet</a></li>

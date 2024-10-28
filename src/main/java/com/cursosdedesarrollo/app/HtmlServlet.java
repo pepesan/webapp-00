@@ -45,7 +45,7 @@ public class HtmlServlet extends HttpServlet {
         System.out.println("Request URL: "+request.getRequestURL());
         System.out.println("Request URI: "+request.getRequestURI());
         System.out.println("Method : "+request.getMethod());
-        System.out.println("Method : "+request.getHeader("User-Agent"));
+        System.out.println("User Agent: "+request.getHeader("User-Agent"));
 
         // Objeto HttpServletResponse
         // Definir el tipo de salida
